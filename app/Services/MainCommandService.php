@@ -13,7 +13,6 @@ use App\Models\Team;
 use App\Models\NbaPlayerStat;
 
 use App\Services\NbaCallFunctionService;
-// App\Services\MainCommandService::parserBoxScore("nba.g.9999999","http://sports.yahoo.com/nba/miami-heat-orlando-magic-2016102619/");
 class MainCommandService
 {
 
@@ -64,7 +63,7 @@ class MainCommandService
 
     public static function refreshMatches($ych_code,$matches_map){
         $client = new Client();
-        $url = 'https://dfyql-ro.sports.yahoo.com/v2/contest/'.$ych_code;
+        $url = 'https://{contest-stat-service-link}/v2/contest/'.$ych_code;
         echo "x: ".$ych_code."\n";
         $res = $client->request('GET', $url, []);
         $data = json_decode($res->getBody(), false);
@@ -106,7 +105,7 @@ class MainCommandService
 
     public static function getJsonBoxScore($match_code){
         $client = new Client();
-        $url = 'https://api-secure.sports.yahoo.com/v1/editorial/s/boxscore/'.$match_code;
+        $url = 'https://{link-to-service-provider}/boxscore/'.$match_code;
 
         $res = $client->request('GET', $url, []);
         
