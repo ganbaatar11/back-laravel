@@ -54,8 +54,7 @@ class HomeController extends BaseController
 	function test(){
         $client = new Client();
         $match_code = 'nba.g.1674788';
-        $url = 'https://api-secure.sports.yahoo.com/v1/editorial/s/boxscore/'.$match_code;
-        // $url = 'https://api-secure.sports.yahoo.com/v1/editorial/s/boxscore/nba.g.1674221';
+        $url = 'https://{link-to-boxscore}}/s/boxscore/'.$match_code;
         
         $res = $client->request('GET', $url, []);
         
